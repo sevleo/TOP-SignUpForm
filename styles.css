@@ -132,27 +132,41 @@ input {
 
 .info-container > div {
     width: 100%;
-    height: var(--info-container-children);
 }
 
+
 .info-header {
-    background-color: rgba(176, 220, 200, 0.209);
+    background-color: rgba(83, 111, 80, 0.298);
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: center;
+    height: 30%;
 }
 
 .info-header > p {
-    padding: 10px;
+    padding: 10px 10px 10px 30px;
     font-family: 'poiret_oneregular', sans-serif;
 }
 
 .info-form {
     background-color: rgba(234, 234, 234, 0.567);
+    z-index: 1;
+    box-shadow: 0px 5px 5px 0px rgba(136, 136, 136, 0.3);
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+}
+
+.info-form > p {
+    padding: 10px 10px 10px 30px;
+    font-family: 'poiret_oneregular', sans-serif;
+    font-size: calc(var(--font-size)*1.5);
 }
 
 .info-footer {
-    background-color: blanchedalmond;
+    background-color: rgba(83, 111, 80, 0.298);
+    height: 30%;
 }
 
 
@@ -162,18 +176,21 @@ input {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    border: 1px solid #d8d8d8;
-    height: 100%;
+    /* border: 0.5px solid #d8d8d879; */
+    /* height: 100%; */
 }
 
 .signup-form > div {
-    margin-bottom: 10px;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: relative;
     flex: 0 0 100%;
     max-width: 100%;
-    padding: 10px;
+    padding: 10px 10px 10px 30px;
 }
+
 
 .signup-form > div input[type='text'],
 .signup-form > div input[type='email'],
@@ -191,6 +208,29 @@ input {
     font-family: sans-serif;
   }
 
+button {
+    width: 35%;
+    height: 20%;
+    margin: 30px 10px 10px 30px;
+    background-color: #687653;
+    border: 1px transparent solid;
+    border-radius: 6px;
+    font-family: sans-serif;
+    font-weight: 200;
+    color: antiquewhite;
+    box-shadow: 5px 5px 10px 0px #68765381;
+}
+
+div.info-footer > p {
+    margin: 20px 10px 10px 30px;
+    font-family: 'poiret_oneregular', sans-serif;
+}
+
+.login {
+    color: #009c00;
+    font-weight: bolder;
+}
+
 
 /* Label styles */
 
@@ -199,8 +239,8 @@ input {
     width: 100%;
     display: none;
     position: absolute;
-    left: 21px;
-    top: 11px;
+    left: 41px;
+    top: 10px;
     font-size: calc(var(--font-size)/1.8);
     color: #f30404;
     animation: silo-fade 0.3s;
@@ -273,7 +313,7 @@ input {
     border: 1px solid #009c00;
 }
 
-.signup-form div input:valid:not(:placeholder-shown) {
+.signup-form div input:not(:focus):valid:not(:placeholder-shown) {
     background-color: #009c0022;
     border: 1px solid #009c00;
 }
