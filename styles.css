@@ -127,7 +127,8 @@ input {
     width: var(--info-container-width);
     display: flex;
     flex-direction: column;
-    justify-content:space-between;
+    justify-content: space-evenly;
+    /* box-shadow: 3px 0px 50px 30px rgba(83, 111, 80, 0.298); */
 }
 
 .info-container > div {
@@ -141,6 +142,7 @@ input {
     flex-direction: column;
     justify-content: center;
     height: 30%;
+    box-shadow: 1px 0px 5px 0px rgba(83, 111, 80, 0.298);
 }
 
 .info-header > p {
@@ -151,11 +153,11 @@ input {
 .info-form {
     background-color: rgba(234, 234, 234, 0.567);
     z-index: 1;
-    box-shadow: 0px 5px 5px 0px rgba(136, 136, 136, 0.3);
+    box-shadow: 1px 5px 5px 0px rgba(136, 136, 136, 0.3);
     height: 40%;
     display: flex;
     flex-direction: column;
-    justify-content:space-around;
+    justify-content:space-evenly;
 }
 
 .info-form > p {
@@ -167,6 +169,7 @@ input {
 .info-footer {
     background-color: rgba(83, 111, 80, 0.298);
     height: 30%;
+    box-shadow: 1px 0px 5px 0px rgba(83, 111, 80, 0.298);
 }
 
 
@@ -313,7 +316,7 @@ div.info-footer > p {
     border: 1px solid #009c00;
 }
 
-.signup-form div input:not(:focus):valid:not(:placeholder-shown) {
+.signup-form div input:not(:focus):not(#confirm-password):valid:not(:placeholder-shown) {
     background-color: #009c0022;
     border: 1px solid #009c00;
 }
