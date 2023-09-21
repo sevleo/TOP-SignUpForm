@@ -1,3 +1,5 @@
+/* General styles */
+
 @font-face {
     font-family: 'poiret_oneregular';
     src: url('font/poiretone-regular-webfont.woff2') format('woff2'),
@@ -14,13 +16,16 @@
     --info-container-children: calc(var(--height)/3);
     --font-size: calc(13px + 0.5vw);
     --line-height: calc(1.1rem + 0.5vw);
-
 }
 
 html {
-    font-family: 'poiret_oneregular', sans-serif;
+    font-family: sans-serif;
     font-size: var(--font-size);
     line-height: var(--line-height);
+}
+
+body {
+    background-color: rgba(176, 220, 200, 0.209);
 }
 
 * {
@@ -29,8 +34,6 @@ html {
     box-sizing: border-box;
 }
 
-
-
 .main {
     display: flex;
     flex-direction: row;
@@ -38,6 +41,47 @@ html {
     margin-left: 10vw;
     margin-right: 10vw;
 }
+
+input {
+    outline: none;
+}
+
+:focus {
+    outline: 0;
+}
+
+
+/* Animations */
+
+@keyframes silo-fade {
+    0% {
+        opacity: 0;
+        transform: translateY(-1.4em);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes silo-help {
+    0% {
+        opacity: 0;
+    }
+    4% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+/* Layout stuff */
 
 .main > div {
     height: var(--height);
@@ -48,14 +92,12 @@ html {
     background-image: url(images/valeria-reverdo-cWciza5SIpA-unsplash.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-
     /* content:url(images/valeria-reverdo-cWciza5SIpA-unsplash.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain; */
     display: flex;
     flex-direction: column;
-
 }
 
 .logo-container-background {
@@ -94,7 +136,7 @@ html {
 }
 
 .info-header {
-    background-color: rgba(105, 208, 160, 0.209);
+    background-color: rgba(176, 220, 200, 0.209);
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -102,6 +144,7 @@ html {
 
 .info-header > p {
     padding: 10px;
+    font-family: 'poiret_oneregular', sans-serif;
 }
 
 .info-form {
@@ -111,6 +154,9 @@ html {
 .info-footer {
     background-color: blanchedalmond;
 }
+
+
+/* Form stuff */
 
 .signup-form {
     display: flex;
@@ -123,6 +169,10 @@ html {
 .signup-form > div {
     margin-bottom: 10px;
     display: block;
+    position: relative;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 10px;
 }
 
 .signup-form > div input[type='text'],
@@ -134,41 +184,159 @@ html {
     background-color: #fff;
     border: 1px solid #d8d8d8;
     border-radius: 3px;
+    transition: all 0.5s ease-in-out;
 }
+
+.signup-form > div input {
+    font-family: sans-serif;
+  }
+
+
+/* Label styles */
 
 .signup-form > div label {
     padding-right: 0px;
-    text-align: left;
     width: 100%;
+    display: none;
+    position: absolute;
+    left: 21px;
+    top: 11px;
+    font-size: calc(var(--font-size)/1.8);
+    color: #f30404;
+    animation: silo-fade 0.3s;
+    transition: all 0.2s ease-in-out;
+}
+
+.signup-formdiv input::placeholder {
+    font-family: sans-serif;
+    color: #b6b5b5;
     display: none;
 }
 
-.signup-form div {
-    flex: 0 0 100%;
-    max-width: 100%;
-    padding: 10px;
+.signup-form div input:focus::placeholder {
+    color: transparent;
+}
+
+.signup-form div input:focus + label,
+.signup-form div input:invalid + label,
+.signup-form div input.invalid + label,
+.signup-form div input:not(.invalid) + label {
+    display: block;
+}
+
+.signup-form div input:valid:not(#confirm-password, #tel) + label {
+    display: block;
+    color: #009c00;
+}
+
+/* .sign-form div input.valid + label {
+    display: block;
+    color: #009c00;
+} */
+
+.signup-form div input:valid#tel + label {
+    color: #009c00;
+}
+
+/* .sign-form div input:valid#tel label {
+    display: block;
+    color: #009c00;
+} */
+
+.signup-form div input.valid#confirm-password + label {
+    display: block;
+    color: #009c00;
+}
+
+.signup-form div input.valid + label {
+    display: block;
+    color: #009c00;
+}
+
+.signup-form div input:focus:valid:not(#confirm-password) + label {
+    color: #009c00;
+}
+
+.signup-form div input:focus:invalid {
+    border: 1px solid #f30404;
+}
+
+.signup-form div input:invalid:not(:placeholder-shown) {
+    background-color: #f3040422;
+}
+
+.signup-form div input:focus:invalid:not(:placeholder-shown) {
+    background-color: #fff;
+}
+
+.signup-form div input:focus:valid {
+    border: 1px solid #009c00;
+}
+
+.signup-form div input:valid:not(:placeholder-shown) {
+    background-color: #009c0022;
+    border: 1px solid #009c00;
+}
+
+.signup-form div input:placeholder-shown {
+    border: 1px solid #d8d8d8;
+}
+
+.signup-form div input:placeholder-shown + label {
+    display: none;
+}
+
+.signup-form div input:focus:placeholder-shown + label {
+    display: block;
+}
+
+.signup-form div input:invalid:not(:placeholder-shown) {
+    border: 1px solid #f30404;
+}
+
+.signup-form div input:focus:invalid:not(#confirm-password) + label::after {
+    content: " (" attr(data-help) ")";
+    animation: silo-help 100s;
+}
+
+.signup-form div input#confirm-password:focus:invalid + label::after {
+    content: "";
+    animation: silo-help 100s;
+}
+
+.signup-form div input:invalid + label:after {
+    content: " (" attr(data-help) ")";
+}
+
+.signup-form div input.valid:focus:not(:placeholder-shown) {
+    background-color: #fff;
+}
+
+.signup-form div input.valid:not(:placeholder-shown) {
+    border: 1px solid #009c00;
+    background-color: #009c0022;
+}
+
+.signup-form div input.invalid:focus:not(:placeholder-shown) {
+    border: 1px solid #f30404;
+    background-color: #fff;
+}
+
+.signup-form div input.invalid:not(:placeholder-shown) {
+    border: 1px solid #f30404;
+    background-color: #f3040422;
 }
 
 
+/* Desktop screen */
+
 @media (min-width: 700px) {
-
-    .signup-form > div {
-        display: block;
-    }
-
-    .signup-form > div label {
-        text-align: right;
-    }
-
     .signup-form div {
         flex: 0 0 50%;
         max-width: 50%;
     }
-
-
-
-
-
-    
-
 }
+
+
+
+

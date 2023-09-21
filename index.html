@@ -22,28 +22,28 @@
             <div class="info-form">
                 <form action="" method="post" class="signup-form" id="signup-form">
                     <div class="signup-form-name">
-                        <label for="name">First name</label>
-                        <input type="text" id="name" placeholder="Name" name="name">
+                        <input type="text" id="name" placeholder="First name *" name="name" pattern="^[a-zA-Z]{2,}$" size="30" maxlength="245" required>
+                        <label for="name" data-help="A-Z characters only">First Name</label>
                     </div>
                     <div class="signup-form-surname">
-                        <label for="surname">Surname</label>
-                        <input type="text" id="surname" placeholder="Surname" name="surname">
+                        <input type="text" id="surname" placeholder="Last name *" name="surname" pattern="^[a-zA-Z]{2,}$" size="30" maxlength="245" required>
+                        <label for="surname" data-help="A-Z characters only">Last Name</label>
                     </div>
                     <div class="signup-form-email">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="Email" name="email">
+                        <input type="email" id="email" placeholder="Email *" name="email" required>
+                        <label for="email" data-help="e.g. example@example.com">Email</label>
                     </div>
                     <div class="signup-form-phone">
-                        <label for="tel">Phone</label>
                         <input type="tel" id="tel" placeholder="Phone number" name="tel">
+                        <label for="tel">Phone</label>
                     </div>
                     <div class="signup-form-password">
-                        <label for="name">Password</label>
-                        <input type="password" id="password" placeholder="Password" name="password">
+                        <input type="password" id="password" placeholder="Password *" name="password" minlength="5" required>
+                        <label for="name" data-help="minimum 5 characters">Password</label>
                     </div>
                     <div class="signup-form-confirm-password">
+                        <input type="password" id="confirm-password" placeholder="Confirm password *" name="confirm-password" required>
                         <label for="name">Confirm password</label>
-                        <input type="password" id="confirm-password" placeholder="Confirm password" name="confirm-password">
                     </div>
                 </form>
             </div>
