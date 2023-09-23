@@ -79,6 +79,21 @@ input {
     }
 }
 
+@keyframes submitValidation {
+    0% {
+        border-color: transparent;
+    }
+    100% {
+        border-color: red;
+    }
+}
+
+.animated {
+    animation-name: submitValidation;
+    animation-duration: 100ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+}
 
 
 /* Layout stuff */
@@ -102,9 +117,9 @@ input {
 
 .logo-container-background {
     width: 100%;
-    height: 20%;
+    height: 30%;
     background-color: rgba(5, 14, 4, 0.535);
-    margin-top: 30vh;
+    margin-top: 0vh;
     /* background-image: url(images/odin-lined.png);
     background-repeat: no-repeat;
     background-size: 20%;
@@ -225,6 +240,18 @@ button {
     font-weight: 200;
     color: antiquewhite;
     box-shadow: 5px 5px 10px 0px #68765381;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #4c573d;
+    transform: scale(1.03);
+}
+
+button:active {
+    background-color: #4c573d;
+    transform: scale(1.06);
+    transition: 0.1s;
 }
 
 div.info-footer > p {
@@ -235,6 +262,7 @@ div.info-footer > p {
 .login {
     color: #009c00;
     font-weight: bolder;
+    text-decoration: none;
 }
 
 

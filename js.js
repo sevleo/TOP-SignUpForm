@@ -1,9 +1,10 @@
 const passwordInput = document.querySelector('#password');
 const confirmPasswordInput = document.querySelector('#confirm-password');
-
+const submitButton = document.querySelector('button[type="submit"]');
 
 passwordInput.addEventListener("input", handlePassword);
 confirmPasswordInput.addEventListener("input", handleConfirmPassword);
+submitButton.addEventListener("click", handleSubmitButton);
 
 function handlePassword(e) {
     if (confirmPasswordInput.value) {
@@ -51,5 +52,54 @@ function handleConfirmPassword(e) {
         }
     }
 
+}
+
+function handleSubmitButton(e) {
+    let inputFields = document.querySelectorAll('input');
+    let redirect = true;
+    inputFields.forEach(field => {
+        if ((!field.validity.valid && field.id !== 'confirm-password')
+            || field.classList.contains('invalid') || 
+            (field.id === 'confirm-password' && field.value === '')) {
+            redirect = false;
+            field.classList.add('animated');
+            field.animate(
+                [
+                    { transform: 'translateX(0px)' },
+                    { transform: 'translateX(10px)' },
+                    { transform: 'translateX(-10px)' },
+                    { transform: 'translateX(0px)' },
+                    { transform: 'translateX(10px)' },
+                    { transform: 'translateX(-10px)' },
+                    { transform: 'translateX(0px)' }
+                ],
+                {
+                    duration: 300,
+                    easing: 'ease-in-out'
+                }
+            );
+            field.nextElementSibling.animate(
+                [
+                    { transform: 'translateX(0px)' },
+                    { transform: 'translateX(10px)' },
+                    { transform: 'translateX(-10px)' },
+                    { transform: 'translateX(0px)' },
+                    { transform: 'translateX(10px)' },
+                    { transform: 'translateX(-10px)' },
+                    { transform: 'translateX(0px)' }
+                ],
+                {
+                    duration: 300,
+                    easing: 'ease-in-out'
+                }
+            )
+            setTimeout(() => {
+                field.classList.remove('animated');
+            }, 300);
+        }
+    });
+    if (redirect) {
+        window.location.href = 'thank-you.html';
+    }
 }
 
