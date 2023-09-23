@@ -148,6 +148,9 @@ input {
 .info-header > p {
     padding: 10px 10px 10px 30px;
     font-family: 'poiret_oneregular', sans-serif;
+    font-size: calc(var(--font-size)*1.5);
+    width: 100%;
+    text-align: justify;
 }
 
 .info-form {
@@ -342,12 +345,13 @@ div.info-footer > p {
     animation: silo-help 100s;
 }
 
-.signup-form div input#confirm-password:focus:invalid + label::after {
-    content: "";
+.signup-form div input#confirm-password:focus + label::after {
+    content: " (" attr(data-help) ")";
     animation: silo-help 100s;
 }
 
-.signup-form div input:invalid + label:after {
+.signup-form div input:invalid + label:after,
+.signup-form div input.invalid + label:after {
     content: " (" attr(data-help) ")";
 }
 
