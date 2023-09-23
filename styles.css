@@ -345,7 +345,7 @@ div.info-footer > p {
     animation: silo-help 100s;
 }
 
-.signup-form div input#confirm-password:focus + label::after {
+.signup-form div input#confirm-password:focus:not(.valid) + label::after {
     content: " (" attr(data-help) ")";
     animation: silo-help 100s;
 }
