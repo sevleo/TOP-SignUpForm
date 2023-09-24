@@ -151,13 +151,16 @@ input {
 }
 
 
+
 .info-header {
     background-color: rgba(83, 111, 80, 0.298);
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 30%;
+    /* max-height: 30%; */
     box-shadow: 1px 0px 5px 0px rgba(83, 111, 80, 0.298);
+    flex-shrink: 3;
 }
 
 .info-header > p {
@@ -173,9 +176,12 @@ input {
     z-index: 1;
     box-shadow: 1px 5px 5px 0px rgba(136, 136, 136, 0.3);
     height: 40%;
+    max-height: 40%;
+    /* min-height: 40%; */
     display: flex;
     flex-direction: column;
     justify-content:space-evenly;
+    flex-shrink: 1;
 }
 
 .info-form > p {
@@ -187,7 +193,9 @@ input {
 .info-footer {
     background-color: rgba(83, 111, 80, 0.298);
     height: 30%;
+    /* max-height: 30%; */
     box-shadow: 1px 0px 5px 0px rgba(83, 111, 80, 0.298);
+    flex-shrink: 3;
 }
 
 
@@ -207,8 +215,8 @@ input {
     align-items: center;
     justify-content: center;
     position: relative;
-    flex: 0 0 100%;
-    max-width: 100%;
+    flex: 0 0 50%;
+    max-width: 50%;
     padding: 10px 10px 10px 30px;
 }
 
@@ -403,13 +411,67 @@ div.info-footer > p {
 }
 
 
-/* Desktop screen */
+/* Mobile screen */
 
-@media (min-width: 700px) {
+@media (max-width: 700px) {
     .signup-form div {
-        flex: 0 0 50%;
-        max-width: 50%;
+        flex: 0 0 100%;
+        max-width: 100%;
     }
+
+    /* div {
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+    } */
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main > div {
+        height: auto;
+        min-height: min-content;
+    }
+
+    .logo-container {
+        display: none;
+    }
+
+    .info-container {
+        width: 100%;
+        overflow-y: auto;
+        min-height: 100vh;
+    }
+
+    .info-header,
+    .info-form,
+    .info-footer {
+        height: auto;
+        max-height: none;
+        flex: auto;
+    }
+
+    .info-header {
+        min-height: 15vh;
+    }
+
+    .info-form {
+        height: 75vh;
+        min-height: 75%;
+    }
+
+    .info-footer {
+        overflow-y: auto;
+        height: 5%;
+        min-height: 10vh;
+    }
+   
+
+
+
 }
 
 
