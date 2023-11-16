@@ -18,7 +18,7 @@ Implementation of custom sign up form with custom data validations, highlightnin
 
 ## Demo
 
-You can view the project at [Calculator Demo](https://sevleo.github.io/Sign-up_Form/).
+You can view the project at [Sign-up Form Demo](https://sevleo.github.io/Sign-up_Form/).
 
 
 ## Technologies
